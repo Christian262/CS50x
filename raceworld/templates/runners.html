@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+    {% if current_user.is_authenticated %}
+     <h1> Welcome, {{ current_user.first_name}}!</h1>
+    {% else %}
+     <h1> Welcome Runner!</h1>
+    {% endif %}
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          
+          <h2>Lorem ipsum</h2>
+
+          <p>olor sit amet, an vim suas aeterno commune, sit posse legere quidam an, posse putant at nec. Alia nobis semper vis cu, iriure feugiat periculis duo et. 
+            Eos at tale quaerendum, ne oporteat erroribus vulputate sed, duo justo idque philosophia ex. Dicit scriptorem vix ex, eligendi lucilius cum ei.</p>
+
+          <p>Cum no illum minimum. Nemore appareat repudiandae ut pri, atqui facilisis cum ei. At usu tritani aliquam, ad corpora facilisi mei, 
+            discere accusam ponderum ne nec. An nam modo ceteros accusam. An ferri dicat iracundia qui. Qui id convenire percipitur, ut euismod epicuri expetendis cum. 
+            In duo quidam fuisset, et vix quot imperdiet reformidans, laoreet consulatu vis in.</p>
+            
+          <p>Te legere propriae percipit eum. Dicit debitis cum ad. Ea putant virtute sea. Vix ad ipsum noster.</p>
+            
+          <p>Audiam propriae ex quo, nusquam dissentiunt eos id. Melius percipit deseruisse ea mei, cum at option civibus indoctum. 
+            Sed no fugit mucius, vix ad ludus vocent viderer, sit nostrud docendi partiendo ea. Cu facilisis scriptorem suscipiantur mea. 
+            Te his aliquam efficiendi, ut impetus facilisi pri, ius mutat molestie ne. Mel id omnium minimum oporteat, sale detraxit eos eu.</p>
+            
+            <p>Has ne odio mnesarchum accommodare. Stet ignota singulis per ea, pri alienum elaboraret ut. Pro odio nullam ea, duo elit tibique te. 
+              No nibh falli aeque pri, altera intellegebat mei in.</p>
+
+        </div>
+
+        <!-- Sidebar Listing Newest Users! -->
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Newest Members</h3>  
+            <ul class="list-group">
+              {% for runner in users %}
+                <li class="list-group-item list-group-item-light">
+                  <a href="{{ url_for('runner', username=runner.username) }}">{{ runner.username }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            
+              {% if current_user.is_authenticated %}
+              <p><a  href="{{ url_for('runner', username=current_user.username) }}">See your profile</a></p>
+              {% else %}
+                  <small>Want to register? <a href="{{ url_for('register') }}">Create account!</a> Registered? <a href="{{ url_for('login') }}">Login!</a></small>
+              {% endif %}
+          
+          </div>
+        </div>
+    </div>
+  </main>    
+    <!-- <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Favorite Race</th>
+            <th scope="col">Since They've Been With Us</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for runner in users %}
+              <tr>
+                <th scope="row">{{ runner.id}}</th>
+                <td><a href="{{ url_for('runner', username=runner.username) }}">{{ runner.username }}</a></td>
+                <td>{{ runner.favorite_race}}</td>
+                <td>{{ runner.date_registered.strftime('%Y-%m-%d %H%M')}}</td>
+             </tr>
+        {% endfor %}
+        </tbody>
+      </table> -->
+      
+        
+
+
+{% endblock content %}

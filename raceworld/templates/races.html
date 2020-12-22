@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+    <h1>Favorite Races</h1>
+
+    {% if current_user.is_authenticated %}
+    <a role="button" class="btn btn-info" href="{{ url_for('add_race') }}">Add Race</a>
+    {% else %}
+    <p>Want to add your own race? <a href="{{ url_for('register') }}">Register</a> today!</p>
+    {% endif %}
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">City</th>
+            <th scope="col">State/Country</th>
+            <th scope="col">Website</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for race in races %}
+              <tr>
+                <th scope="row">{{ race.race_name}}</th>
+                <td>{{ race.race_date }}</td>
+                <td>{{ race.race_city}}</td>
+                <td>{{ race.race_state }}</td>
+                <td><a href="{{ race.race_url }}" target="_blank">{{ race.race_url }}</a></td>
+             </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+
+    <script>
+        function favoriteRace()
+        {
+            let name = document.querySelector('#name').value;
+            let race = document.querySelector('#races').value;
+            document.getElementById('nameFavoriteRace').innerHTML = name + '\'s favorite race is the: ' + race + '!';
+        }
+    </script>
+
+{% endblock content %}

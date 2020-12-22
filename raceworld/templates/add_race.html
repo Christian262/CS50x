@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+    <h1>Add New Race</h1>
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add Race</legend>
+                                    <!-- Username -->
+                <div class="form-group">
+                    {{ form.race_name.label(class="form-control-label") }}
+                    {% if form.race_name.errors %}
+                        {{ form.race_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race_name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                
+                <!-- Race Type -->
+                <div class="form-group">
+                    {{ form.race_type.label(class="form-control-label") }}
+                    {% if form.race_type.errors %}
+                        {{ form.race_type(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race_type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race_type(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- Race Date -->
+                <div class="form-group">
+                    {{ form.race_date.label(class="form-control-label") }}
+                    {% if form.race_date.errors %}
+                        {{ form.race_date(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race_date(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- Race City -->
+                <div class="form-group">
+                    {{ form.race_city.label(class="form-control-label") }}
+                    {% if form.race_city.errors %}
+                        {{ form.race_city(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race_city.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race_city(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- Race State -->
+                <div class="form-group">
+                    {{ form.race_state.label(class="form-control-label") }}
+                    {% if form.race_state.errors %}
+                        {{ form.race_state(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race_state.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race_state(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- Race URL -->
+                <div class="form-group">
+                    {{ form.race_url.label(class="form-control-label") }}
+                    {% if form.race_url.errors %}
+                        {{ form.race_url(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.race_url.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.race_url(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <!-- Submit -->
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+   
+
+
+    <!-- <script>
+        document.querySelector('form').onsubmit = function() {
+            if(!document.querySelector('input').value) {
+            alert('You must prove your name and email!');
+        }
+        else if (!document.querySelector('input').value) {
+            alert('You must prove your favorite race!');
+            return false;
+        }
+        return true;
+        }
+    </script> -->
+
+{% endblock content %}

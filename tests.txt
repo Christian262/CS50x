@@ -1,0 +1,16 @@
+user_1 = User(username='christian262', first_name='Christian', last_name='Lautenschleger', email='test@test.com', 
+                    password='hashed_password', date_registered=datetime.utcnow, favorite_race='marathon')
+
+                       # elif request.method == 'GET':
+    #     form.mile_pr.data=current_user.running_stats.mile_pr
+    #     form.fivek_pr.data=current_user.running_stats.fivek_pr
+    #     form.tenk_pr.datacurrent_user.running_stats.tenk_pr
+    #     form.half_pr.data=current_user.running_stats.half_pr
+    #     form.marathon_pr.datacurrent_user.running_stats.marathon_pr
+    #     form.fiftyk_pr.datacurrent_user.running_stats.fiftyk_pr
+    #     form.hundredk_pr.datacurrent_user.running_stats.hundredk_pr
+    #     form.fiftym_pr.data=current_user.running_stats.fiftym_pr
+    #     form.hundredm_pr.data=current_user.running_stats.hundredm_pr
+    #     form.running_streak_pr.data=current_user.running_stats.running_streak_pr
+    #     form.annual_miles_pr.data=current_user.running_stats.annual_miles_pr
+    #     form.most_races_year.data=current_user.running_stats.most_races_year

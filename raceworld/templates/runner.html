@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ user.username}}{% endblock title %}
+
+{% block content %}
+
+        <h1>Runner {{ user.username }}</h1>
+
+        {% if current_user.running_stats.user_id == Null %}
+            <a role="button" class="btn btn-outline-info" href="{{ url_for('running_stats', username=current_user.username) }}">Add Running Stats</a>
+        {% else %}
+        <a role="button" class="btn btn-outline-info" href="{{ url_for('update_running_stats', username=current_user.username) }}">Update Running Stats</a>
+        {% endif %}
+        
+        <p>Marathon PR: {{ user.running_stats.mile_pr }}</p>
+        <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>Favorite Race: {{ user.favorite_race }}</p>
+        <p>Email: {{ user.email }}</p>
+
+                    {% if current_user %}
+                    <a role="button" class="btn btn-outline-info" href="{{ url_for('update_runner', username=current_user.username) }}">Edit</a>
+                    {% endif %}
+
+        {% if user.races %}
+            <p>Registered races:
+                <ul class="list-group">
+                    {% for race in user.races %}    
+                        <li class="list-group-item list-group-item-light">
+                            {{ race.race_name}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </p>
+        {% endif %}
+
+        
+{% endblock content %}

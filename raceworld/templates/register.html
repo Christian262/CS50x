@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+    <h1>Create New Account</h1>
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+
+                <!-- Username -->
+                <div class="form-group">
+                   {{ render_field(form.username) }}
+                </div>
+                
+                <!-- First Name -->
+                <div class="form-group">
+                    {{ render_field(form.first_name) }}
+                </div>
+
+                <!-- Last name -->
+                <div class="form-group">
+                    {{ render_field(form.last_name) }}
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    {{ render_field(form.email) }}
+                </div>
+
+                <!-- Favorite race -->
+                <div class="form-group">
+                    {{ render_field(form.favorite_race) }}
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    {{ render_field(form.password) }}
+                </div>
+
+                <!-- Password Confirm -->
+                <div class="form-group">
+                    {{ render_field(form.confirm_password) }}
+                </div>
+            </fieldset>
+
+            {{ form.recaptcha }}
+            
+            <!-- Submit -->
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+    <!-- Login -->
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href=" {{ url_for('login') }} ">Sign In</a>
+        </small>
+    </div>
+
+{% endblock content %}

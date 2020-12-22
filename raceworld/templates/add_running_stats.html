@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+    <h1>Add Running Stats</h1>
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update Today</legend>
+                
+                <!-- Mile PR -->
+                <div class="form-group">
+                    {{ render_field(form.mile_pr) }}
+                </div>
+                
+                <!-- 5K PR -->
+                <div class="form-group">
+                    {{ render_field(form.fivek_pr) }}
+                </div>
+
+                <!-- 10K PR-->
+                <div class="form-group">
+                    {{ render_field(form.tenk_pr) }}
+                </div>
+
+                <!-- Half PR -->
+                <div class="form-group">
+                    {{ render_field(form.half_pr) }}
+                </div>
+
+                <!-- Marathon PR-->
+                <div class="form-group">
+                    {{ render_field(form.marathon_pr) }}
+                </div>
+
+                <!-- 50K PR -->
+                <div class="form-group">
+                    {{ render_field(form.fiftyk_pr) }}
+                </div>
+
+                <!-- 100K PR -->
+                <div class="form-group">
+                    {{ render_field(form.hundredk_pr) }}
+                </div>
+
+                 <!-- 50M PR -->
+                 <div class="form-group">
+                    {{ render_field(form.fiftym_pr) }}
+                </div>
+
+                 <!-- 100K PR -->
+                 <div class="form-group">
+                    {{ render_field(form.hundredm_pr) }}
+                </div>
+
+                 <!-- Running Streak PR -->
+                 <div class="form-group">
+                    {{ render_field(form.running_streak_pr) }}
+                </div>
+
+                 <!-- Annual Miles PR -->
+                 <div class="form-group">
+                    {{ render_field(form.annual_miles_pr) }}
+                </div>
+
+                <!-- Most races in a year -->
+                <div class="form-group">
+                    {{ render_field(form.most_races_year) }}
+                </div>
+
+            </fieldset>
+
+            <!-- Submit -->
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+ 
+
+
+    <!-- <script>
+        document.querySelector('form').onsubmit = function() {
+            if(!document.querySelector('input').value) {
+            alert('You must prove your name and email!');
+        }
+        else if (!document.querySelector('input').value) {
+            alert('You must prove your favorite race!');
+            return false;
+        }
+        return true;
+        }
+    </script> -->
+
+{% endblock content %}
